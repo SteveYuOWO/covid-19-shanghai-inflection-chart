@@ -1,4 +1,4 @@
-# Covid 19 shanghai inflection number spider
+# Covid 19 shanghai inflection chart
 
 ### Installation
 
@@ -12,3 +12,6 @@ pip install requests beautifulsoup4 numpy pandas matplotlib
 ./run.sh
 ```
 
+### Preview
+
+![shanghai inflection chart](./preview.png)
