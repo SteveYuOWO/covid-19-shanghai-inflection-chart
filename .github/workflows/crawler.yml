@@ -42,7 +42,13 @@ jobs:
         run: |
           git config --local user.email "steveyuowo@gmail.com"
           git config --local user.name "steveyuowo"
-          git commit -m "Automatic crawling" -a
+          if [ `git diff --cached --exit-code HEAD^ > /dev/null && (git ls-files --other --exclude-standard --directory | grep -c -v '/$')` ];
+          then
+            git commit -m "Automatic crawling" -a
+            echo "commit success"
+          else
+            echo "no need to commit"
+          fi
       - name: Push changes
         uses: ad-m/github-push-action@master
         with:
