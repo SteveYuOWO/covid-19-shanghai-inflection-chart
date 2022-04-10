@@ -40,7 +40,7 @@ jobs:
       - name: Commit files
         run: |
           git config --local user.email "steveyuowo@gmail.com"
-          git config --local user.name "steveyu[bot]"
+          git config --local user.name "steveyuowo"
           git commit -m "Automatic crawling" -a
       - name: Push changes
         uses: ad-m/github-push-action@master
