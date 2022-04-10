@@ -1,4 +1,4 @@
 #!/bin/bash
 
 python fetchdata.py
-python readfromcsv.py
+python exportpng.py
