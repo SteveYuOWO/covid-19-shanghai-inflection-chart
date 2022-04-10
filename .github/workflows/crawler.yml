@@ -36,7 +36,8 @@ jobs:
           pip install beautifulsoup4 requests numpy pandas matplotlib
       - name: Crawling
         run: |
-          python fetchdata.py
+          chmod +x ./run.sh
+          ./run.sh
       - name: Commit files
         run: |
           git config --local user.email "steveyuowo@gmail.com"
