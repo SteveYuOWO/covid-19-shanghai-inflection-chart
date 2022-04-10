@@ -1,26 +1,23 @@
 import pandas as pd
 import matplotlib.pyplot as plt
 
-plt.rc("font", family="Heiti TC")
-plt.rcParams["figure.autolayout"] = True
-
 fig, ax = plt.subplots()
 fig.autofmt_xdate()
-fig.canvas.set_window_title('上海感染者折线图')
+fig.canvas.set_window_title('Shanghai Infected Persons Line Chart')
 
 df = pd.read_csv('./data.csv')
 
 date = df.loc[:, "日期"].values[::-1]
-inflection_people = df.loc[:, "感染者"].values[::-1]
-asymptomatic_people = df.loc[:, "无症状感染者"].values[::-1]
+inflection_Persons = df.loc[:, "感染者"].values[::-1]
+asymptomatic_Persons = df.loc[:, "无症状感染者"].values[::-1]
 
-plt.figure(figsize=(len(inflection_people) * 1.2, 6), dpi=300)
+plt.figure(figsize=(len(inflection_Persons) * 1.2, 6), dpi=300)
 
-plt.title("上海感染者折线图")
-plt.xlabel("日期")
-plt.ylabel("人数")
-plt.plot(date, inflection_people, label="感染者")
-plt.plot(date, asymptomatic_people, label="无症状感染者")
+plt.title("Shanghai Infected Persons Line Chart")
+plt.xlabel("Date")
+plt.ylabel("Infected Persons")
+plt.plot(date, inflection_Persons, label="Infected Persons")
+plt.plot(date, asymptomatic_Persons, label="Asymptomatic Infected Persons")
 
 plt.legend()
 plt.savefig('preview.png')
