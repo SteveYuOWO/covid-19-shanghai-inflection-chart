@@ -10,7 +10,7 @@ fig.canvas.set_window_title('上海感染者折线图')
 
 df = pd.read_csv('./data.csv')
 
-date = df.loc[:, "日期"].values
+date = df.loc[:, "日期"].values[::-1]
 inflection_people = df.loc[:, "感染者"].values[::-1]
 asymptomatic_people = df.loc[:, "无症状感染者"].values[::-1]
 
