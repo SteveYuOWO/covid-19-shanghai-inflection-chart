@@ -33,7 +33,7 @@ jobs:
       - name: Install dependencies
         run: |
           python -m pip install --upgrade pip
-          pip install beautifulsoup4 requests numpy pandas matplotlib scipy
+          pip install beautifulsoup4 requests numpy pandas matplotlib
       - name: Crawling
         run: |
           chmod +x ./run.sh
@@ -42,12 +42,10 @@ jobs:
         run: |
           git config --local user.email "steveyuowo@gmail.com"
           git config --local user.name "steveyuowo"
-          if [ `git diff --cached --exit-code HEAD^ > /dev/null && (git ls-files --other --exclude-standard --directory | grep -c -v '/$')` ];
-          then
-            git commit -m "Automatic crawling" -a
-            echo "commit success"
+          if [ -n "$(git status --porcelain)" ]; then
+            git commit -m "automatic crawling" -a
           else
-            echo "no need to commit"
+            echo "nothing to commit"
           fi
       - name: Push changes
         uses: ad-m/github-push-action@master
